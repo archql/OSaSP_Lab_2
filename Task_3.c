@@ -11,20 +11,20 @@ int main( int argc , char *argv[ ] , char *envp[ ] )
 	// check if it is enough params passed
 	if (argc != 3)
 	{
-		fputs("Wrong args!\n", stderr);
+		fputs("Wrong args! Format: Task_3.exe [filename] [num of lines] \n", stderr);
 		return -1;
 	}
 	// get ptr to filename
 	char *filename = argv[1];
 	// check if not null
-	if ( !(*filename) )
-	{
-		fputs("Wrong args!\n", stderr);
-		return -1;
-	}
+	//if ( !(*filename) )
+	//{
+	//	fputs("Wrong args!\n", stderr);
+	//	return -1;
+	//}
 	// try to get num of lines
 	int linesnum = 0;
-	if (sscanf( argv[2], "%i", &linesnum ) != 1)
+	if (sscanf( argv[2], "%u", &linesnum ) != 1)
 	{
 		fputs("Cant read num of lines!\n", stderr);
 		return -1;
@@ -62,7 +62,7 @@ int main( int argc , char *argv[ ] , char *envp[ ] )
 		putchar(nextchar);
 	}
 	// end
-	puts("[Ended]");
+	puts("\n[Ended]");
 		
 	// close file
 	if (fclose(infile))

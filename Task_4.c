@@ -5,24 +5,30 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#include <string.h>
 
 int main( int argc , char *argv[ ] , char *envp[ ] )
 {
 	// check if it is enough params passed
 	if (argc != 3)
 	{
-		fputs("Wrong args!\n", stderr);
+		fputs("Wrong args! Format: Task_4.exe [filename from] [filename to]\n", stderr);
 		return -1;
 	}
 	// get ptr to filename
 	char *filename_in  = argv[1];
 	char *filename_out = argv[2];
 	// check if not null
-	if ( !(*filename_in) || !(*filename_out) )
+	//if ( !(*filename_in) || !(*filename_out) )
+	//{
+	//	fputs("Wrong args!\n", stderr);
+	//	return -1;
+	//}
+	if (!strcmp(filename_in, filename_out))
 	{
-		fputs("Wrong args!\n", stderr);
+		fputs("Cant not proceed with same filenames!\n", stderr);
 		return -1;
-	}
+	}	
 	// try to open files
 	FILE* file_in  = fopen (filename_in , "r");
 	FILE* file_out = fopen (filename_out, "w");

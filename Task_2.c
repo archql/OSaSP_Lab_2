@@ -11,17 +11,17 @@ int main( int argc , char *argv[ ] , char *envp[ ] )
 	// check if it is enough params passed
 	if (argc != 2)
 	{
-		fputs("Wrong args!\n", stderr);
+		fputs("Wrong args! Format Task_02.exe [filename]\n", stderr);
 		return -1;
 	}
 	// get ptr to filename
 	char *filename = argv[1];
 	// check if not null
-	if ( !(*filename) )
-	{
-		fputs("Wrong args!\n", stderr);
-		return -1;
-	}
+	//if ( !(*filename) )
+	//{
+	//	fputs("Wrong args!\n", stderr);
+	//	return -1;
+	//}
 	// try to open file
 	printf("try to open file %s...\n", filename);
 	//int outfile = open (filename, O_CREAT, 644);
@@ -68,7 +68,7 @@ int main( int argc , char *argv[ ] , char *envp[ ] )
 	system("/bin/stty cooked");
 	
 	// close file
-	if (fclose(infile))
+	if (fclose(outfile))
 		fputs("Error while file close occured!\n", stderr);	
 
 	return 0;

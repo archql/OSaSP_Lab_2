@@ -51,7 +51,9 @@ int findFile( char *dirname, const char *filename, int *ctr_visited )
 	
 	// close dirs
 	if (closedir(dir_cur))
-		fputs("Error while dir close occured!\n", stderr);	
+		fputs("Error while dir close occured!\n", stderr);
+		
+	return 0;	
 }
 
 void strmode(mode_t mode, char *perm)
@@ -84,17 +86,17 @@ int main( int argc , char *argv[ ] , char *envp[ ] )
 	// check if it is enough params passed
 	if (argc != 3)
 	{
-		fputs("Wrong args!\n", stderr);
+		fputs("Wrong args! Format: Task_i_2.exe [dir from which search start] [filename to search]\n", stderr);
 		return -1;
 	}
 	// get ptr to filename
 	char *filename = argv[2];
 	// check if not null
-	if ( !(*filename) )
-	{
-		fputs("Wrong args!\n", stderr);
-		return -1;
-	}
+	//if ( !(*filename) )
+	//{
+	//	fputs("Wrong args!\n", stderr);
+	//	return -1;
+	//}
 	// try to read cur dir
 	int ctr_visited = 0;
 	// find 
